@@ -179,10 +179,13 @@ void loop() {
 
         
         // RandomTwinkle();
-        RandomVerticalLine();
         
+        //RandomVerticalLine();
+
+        Stickman(true);
+        EndTime = millis() + 10000;
+        Stickman(false);
         EndTime = millis() + 30000; //30s
-               
 
         // AnimateCube();
         // AnimateXX();
@@ -368,8 +371,22 @@ void AnimateXX(){
           default:
             animationStep=0;
             CubeClear(false);
-            break;
-            
+            break;           
     }  
+}
+
+void Stickman(bool handsHigh){
+  CubeClear(false);
+  if(handsHigh){
+    CubeBuff[4][2] = B10101;
+    CubeBuff[3][2] = B01110;
+  }
+  else{
+    CubeBuff[4][2] = B00100;
+    CubeBuff[3][2] = B11111;
+  }
+  CubeBuff[2][2] = B00100;
+  CubeBuff[1][2] = B01010;
+  CubeBuff[0][2] = B01010;
 }
 
